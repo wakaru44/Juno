@@ -37,6 +37,9 @@ byte state[] = {90, 90};      //initializes the state variable that stores incom
 void setup() {
   bluetoothInput.begin(9600); // Sets rate of data transmission of Bluetooth module to 9600 bits/second. See https://www.arduino.cc/en/serial/begin for more details
   Serial.begin(9600);         // Used to debug when plugged into computer via USB 
+  //Ack something to serial
+  bluetoothInput.print("ATIT");
+  bluetoothInput.print("AT+VERSION");
   //Initializing components
   leftServo.attach(leftServoPin); 
   rightServo.attach(rightServoPin);
